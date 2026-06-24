@@ -1,0 +1,12 @@
+# Environment variables
+.env
+
+# IDE files
+.idea/
+.vscode/
+
+# Build files
+target/
+
+# Logs
+*.log
