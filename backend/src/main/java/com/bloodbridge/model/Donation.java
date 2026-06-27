@@ -58,4 +58,5 @@ public class Donation {
     public enum DonationType {
         VOLUNTARY, EMERGENCY
     }
+    
 }
