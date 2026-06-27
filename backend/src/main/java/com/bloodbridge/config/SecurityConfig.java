@@ -58,16 +58,16 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                // Public endpoints
+                
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/blood-banks/public/**").permitAll()
                 .requestMatchers("/ws/**").permitAll()
-                // Role-based endpoints
+                
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
                 .requestMatchers("/api/donor/**").hasRole("DONOR")
                 .requestMatchers("/api/blood-bank/**").hasRole("BLOOD_BANK")
                 .requestMatchers("/api/hospital/**").hasRole("HOSPITAL")
-                // All others need auth
+                
                 .anyRequest().authenticated()
             )
             .authenticationProvider(authenticationProvider())
